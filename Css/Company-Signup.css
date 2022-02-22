@@ -1,0 +1,126 @@
+body{
+    background-image: url(../Img/back-img-2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+form fieldset .form-element{
+    padding-left: 250px;
+    padding-right: 250px;
+}
+form fieldset .form-element label{
+    display: inline-block;
+    text-align: left;
+    width: 250px;
+}
+form fieldset .form-element input{
+    width: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 27px;
+}
+div.col-6{
+    background-color: white;
+    opacity: 0.92;
+    border-radius: 30px;
+    padding-left: 10px;
+}
+h3{
+    text-align: center;
+    padding-top: 15px;
+    font-weight: 700;
+}
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+  
+    display: flex;
+    align-items: center;
+}
+form fieldset .form-element .buttn{
+    background-color: transparent;
+    border-radius: 25px;
+    height: 50px;
+    margin:0 auto;
+    display:block;
+    margin-bottom: 25px;
+}
+
+form fieldset .form-element .buttn:hover{
+    background-color: #6C7A87;
+    color: white;
+}
+
+@media (max-width: 575.98px) { 
+    form fieldset .form-element{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    form fieldset .form-element input{
+        width: 300px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    form fieldset .form-element label{
+        
+        width: 250px;
+    }
+}
+
+@media (max-width: 576px) { 
+    form fieldset .form-element{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    form fieldset .form-element input{
+        width: 150px;
+        margin-top: 17px;
+        margin-bottom: 17px;
+    }
+    form fieldset .form-element label{
+        
+        width: 150px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    form fieldset .form-element{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    form fieldset .form-element input{
+        width: 150px;
+        margin-top: 17px;
+        margin-bottom: 17px;
+    }
+    form fieldset .form-element label{
+        
+        width: 150px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    form fieldset .form-element{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    form fieldset .form-element input{
+        width: 300px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    form fieldset .form-element label{
+        width: 250px;
+    }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+    
+}
