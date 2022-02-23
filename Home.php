@@ -42,7 +42,7 @@
                         <a class="nav-link" href="#">L'équipe</a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#About">About</a>
                     </li>
                     <li>
                         <a class="nav-link" href="#Contact">Contact</a>
@@ -166,6 +166,9 @@
             <span class="visually-hidden">Next</span>
             </button>
         </div>
+    </div>
+    <div id="About">
+
     </div>
     <hr id="footer-hr">
     <div class="footer">

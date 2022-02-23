@@ -1,50 +1,40 @@
-:root {
-    --main-bg-color: #009d63;
-    --main-text-color: #009d63;
-    --second-text-color: #bbbec5;
-    --second-bg-color: #c1efde;
-  }
+
   
-  .primary-text {
-    color: var(--main-text-color);
-  }
+.primary-text {
+    color: #2C7DBC
+}
   
-  .second-text {
-    color: var(--second-text-color);
-  }
+.second-text {
+    color: #bbbec5
+}
   
-  .primary-bg {
-    background-color: var(--main-bg-color);
-  }
+.primary-bg {
+    background-color: #2C7DBC
+}
   
-  .secondary-bg {
-    background-color: var(--second-bg-color);
-  }
+.secondary-bg {
+    background-color: #b2d2e6;
+}
   
-  .rounded-full {
+.rounded-full {
     border-radius: 100%;
-  }
+}
   
-  #wrapper {
+#wrapper {
     overflow-x: hidden;
-    background-image: linear-gradient(
-      to right,
-      #baf3d7,
-      #c2f5de,
-      #cbf7e4,
-      #d4f8ea,
-      #ddfaef
-    );
-  }
+    background-color: #79afdc;
+    background-image: linear-gradient(90deg, #79afdc 0%, #b2d2e6 100%);
+
+}
   
-  #sidebar-wrapper {
+#sidebar-wrapper {
     min-height: 100vh;
     margin-left: -15rem;
     -webkit-transition: margin 0.25s ease-out;
     -moz-transition: margin 0.25s ease-out;
     -o-transition: margin 0.25s ease-out;
     transition: margin 0.25s ease-out;
-  }
+}
   
   #sidebar-wrapper .sidebar-heading {
     padding: 0.875rem 1.25rem;
@@ -74,7 +64,7 @@
   
   .list-group-item.active {
     background-color: transparent;
-    color: var(--main-text-color);
+    color: #2C7DBC;
     font-weight: bold;
     border: none;
   }

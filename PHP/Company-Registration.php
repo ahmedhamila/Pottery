@@ -22,13 +22,13 @@ $num=mysqli_num_rows($result);
 
 if($num > 0)
 {
-    echo "Username already taken";
+    header("location: ./Company-Signup.php?error=UsernameTaken");
 }
 else
 {
     if(mysqli_num_rows(mysqli_query($con,"select * from companies where CodeFiscal = '$CodeF' ;"))>0)
     {
-        echo "Code fiscal already taken";
+        header("location: ./Company-Signup.php?error=CodeFiscalTaken");
     }
     else{
         $role="Admin";
@@ -37,7 +37,8 @@ else
 
         mysqli_query($con,"insert into companies(AdminID,Company,CodeFiscal,Name,LastName,Email) values('$id','$company','$CodeF','$name','$lastname','$email');");
         
-        header("location: ./Admin.php");
+        $_SESSION['Username']=$username;
+        header("location: ./Admin.php?Page=Dashboard");
     }
     
 }

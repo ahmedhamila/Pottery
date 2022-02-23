@@ -20,9 +20,17 @@ if($num == 1)
     $role=mysqli_fetch_row(mysqli_query($con,"select Role from users where Username ='$name' and Password = '$pass'; "))[0];
     echo $role;
     if($role=="Client")
+    {
+        $_SESSION["Username"]=$name;
         header("location: ./Client.php");
+    }
+        
     else
-        header("location: ./Admin.php");
+    {
+        $_SESSION["Username"]=$name;
+        header("location: ./Admin.php?Page=Dashboard");
+    }
+        
 }
 else
 {

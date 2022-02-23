@@ -24,7 +24,8 @@ else
     $role="Client";
     $reg="insert into users(Username,Password,Role) values('$name','$pass','$role');";
     mysqli_query($con,$reg);
-    echo("Registration successful");
+    $_SESSION["Username"]=$name;
+    header("location: ./Client.php");
 }
 
 ?>
