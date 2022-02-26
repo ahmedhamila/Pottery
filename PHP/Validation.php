@@ -34,7 +34,7 @@ if($num == 1)
 }
 else
 {
-    echo "invalid info";
+    header("location: ../Home.php?error=InvalidInfo");
 }
 
 ?>

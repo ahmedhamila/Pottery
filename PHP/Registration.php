@@ -17,7 +17,7 @@ $num=mysqli_num_rows($result);
 
 if($num > 0)
 {
-    echo "Username already taken";
+    header("location: ../Home.php?error=UsernameExists");
 }
 else
 {

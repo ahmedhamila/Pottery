@@ -28,75 +28,69 @@
             </ul>
         </div>
     </nav>
+
     <div class="container-fluid px-4">
         <div class="row my-5">
-            <h3 class="fs-4 mb-3">Recent Orders</h3>
+            <h3 class="fs-4 mb-3">Your Articles</h3>
             <div class="col">
-                <table class="table bg-white rounded shadow-sm  table-hover">
-                    <thead>
+                <?php
+                    $con=mysqli_connect('localhost','root','');
+                    mysqli_select_db($con,"pottery_db");
+                    echo "
+                    <div class='table-responsive'>
+                        <table class='table bg-white rounded shadow-sm  table-hover'>
+                        <thead>
+                            <tr>
+                                <th scope='col' width='50'>#</th>
+                                <th scope='col'>Product</th>
+                                <th scope='col'>Description</th>
+                                <th scope='col'>Price</th>
+                                <th style='text-align:center;' scope='col' >Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>";
+
+                    $result=mysqli_query($con,"select * from article_demo;");
+                    $i=1;
+                    while($row_article=mysqli_fetch_array($result))
+                    {
+                        echo "
                         <tr>
-                            <th scope="col" width="50">#</th>
-                            <th scope="col">Product</th>
-                            <th scope="col">Customer</th>
-                            <th scope="col">Price</th>
+                            <th scope='row'>".$i."</th>
+                            <td>".($row_article['ArticleName'])."</td>
+                            <td>".($row_article['ArticleDescription'])."</td>
+                            <td>".($row_article['ArticlePrice'])."</td>
+                            <td>
+                            <div style='display: flex; flex-direction: row; justify-content: flex-end;'>
+                                <a href='./Admin.php?Page=Product&Delete=".$row_article['ID']."' class='btn btn-danger'>Delete</a>
+                                <a href='./Admin.php?Page=Product&Modify=".$row_article['ID']."' class='btn btn-success'>Modify</a>
+                                <a href='./Admin.php?Page=Product&Details=".$row_article['ID']."' class='btn btn-info'>Details</a>
+                            </div>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Television</td>
-                            <td>Jonny</td>
-                            <td>$1200</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Laptop</td>
-                            <td>Kenny</td>
-                            <td>$750</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Cell Phone</td>
-                            <td>Jenny</td>
-                            <td>$600</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Fridge</td>
-                            <td>Killy</td>
-                            <td>$300</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td>Books</td>
-                            <td>Filly</td>
-                            <td>$120</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">6</th>
-                            <td>Gold</td>
-                            <td>Bumbo</td>
-                            <td>$1800</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">7</th>
-                            <td>Pen</td>
-                            <td>Bilbo</td>
-                            <td>$75</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">8</th>
-                            <td>Notebook</td>
-                            <td>Frodo</td>
-                            <td>$36</td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
+                        ";
+                        $i++;
+                    }
+                    echo "
+                            </tbody>
+                        </table>
+                    </div>
+                    ";
+                ?>
+            
+                    
+                    
             </div>
         </div>
-    </div>
-                
-
-            
+    </div>       
+    <?php
+        if(isset($_GET['Delete']))
+        {
+            $con=mysqli_connect('localhost','root','');
+            mysqli_select_db($con,"pottery_db");
+            $id=$_GET['Delete'];
+            mysqli_query($con,"delete from article_demo where ID='$id' ;");
+             echo("<script>location.href = './Admin.php?Page=Product';</script>");
+        }
+    ?>    
 </div>

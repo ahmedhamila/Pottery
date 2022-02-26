@@ -12,13 +12,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="./Css/Home.css">
     <link rel="stylesheet" href="./Css/footer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Pottery Plateform</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg fixed-top activate-menu navbar-light bg-light" style="visibility:visible;">
         <div class="container-fluid">
             <div class="container-sm" id="brand-con">
-                <a class="navbar-brand" href="Home.html">
+                <a class="navbar-brand" href="Home.php">
                   <img src="Img/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
                   Pottery
                 </a>
@@ -77,16 +78,27 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="./PHP/Validation.php" method="post">
+        <?php if (isset($_GET['error']) && $_GET['error']=="InvalidInfo"){ ?>
+            in here1
+            <script type="text/javascript">
+            $(document).ready(function(){
+                $("#loginModal").modal("show");
+            });
+            </script>
+            <div class='alert alert-danger d-flex align-items-center' role='alert'>
+                <h6 style='text-align : center; '>Invalid Information</h6>
+            </div>
+        <?php } ?>
+            <form action="./PHP/Validation.php" method="post" id="loginForm">
                 <div class="form-element">
                 <div class="form-element">
                     <label for="Username">Username</label>
-                    <input type="text" id="Username" name="Username" placeholder="Enter Username" title="Must Contain at least 2 characters(starts with uppercase letter)" pattern="[A-Z][a-zA-Z0-9]+" required>
+                    <input type="text" id="Username" name="Username" placeholder="Enter Username" required autocomplete="off">
                 </div>
                 </div>
                 <div class="form-element">
                     <label for="Password">Password</label>
-                    <input type="password" id="Password" name="Password" placeholder="Enter Password" required>
+                    <input type="password" id="Password" name="Password" placeholder="Enter Password" required autocomplete="off">
                 </div>
                 <div class="form-element">
                     <div class="modal-footer">
@@ -98,6 +110,7 @@
       </div>
     </div>
   </div>
+  
 
   <!-- Modal -->
   <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true"> 
@@ -108,14 +121,25 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+        <?php if (isset($_GET['error']) &&$_GET['error'] =="UsernameExists"){ ?>
+            in here2
+            <script type="text/javascript">
+            $(document).ready(function(){
+                $("#signupModal").modal("show");
+            });
+            </script>
+            <div class='alert alert-danger d-flex align-items-center' role='alert'>
+                <h6 style='text-align : center; '>Username Already Exists</h6>
+            </div>
+        <?php } ?>
             <form action="./PHP/Registration.php" method="post">
                 <div class="form-element">
                     <label for="Username">Username</label>
-                    <input type="text" id="Username" name="Username" placeholder="Enter Username" required>
+                    <input type="text" id="Username" name="Username" placeholder="Enter Username" required autocomplete="off" title="Must Contain at least 2 characters(starts with uppercase letter)" pattern="[A-Z][a-zA-Z0-9]+">
                 </div>
                 <div class="form-element">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="Password" placeholder="Enter password" required>
+                    <input type="password" id="password" name="Password" placeholder="Enter password" required autocomplete="off">
                 </div>
                 <div class="form-element">
                     <a href="./PHP/Company-Signup.php">Are you and entrepreneur ? sign up here</a>

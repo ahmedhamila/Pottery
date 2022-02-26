@@ -123,3 +123,8 @@ div.carousel-caption.topright{
     left: 50vw;
     
 }
+
+
+.alert h6{
+    margin:0 auto;
+}
