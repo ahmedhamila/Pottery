@@ -52,6 +52,10 @@
             {
                 include './Product.php';
             }
+            else if($_GET["Page"]=="Modify")
+            {
+                include "./Modify.php";
+            }
         }
         ?>
         

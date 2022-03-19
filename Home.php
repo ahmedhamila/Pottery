@@ -79,7 +79,6 @@
         </div>
         <div class="modal-body">
         <?php if (isset($_GET['error']) && $_GET['error']=="InvalidInfo"){ ?>
-            in here1
             <script type="text/javascript">
             $(document).ready(function(){
                 $("#loginModal").modal("show");
@@ -122,7 +121,6 @@
         </div>
         <div class="modal-body">
         <?php if (isset($_GET['error']) &&$_GET['error'] =="UsernameExists"){ ?>
-            in here2
             <script type="text/javascript">
             $(document).ready(function(){
                 $("#signupModal").modal("show");
