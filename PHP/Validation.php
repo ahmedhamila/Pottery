@@ -4,12 +4,12 @@ session_start();
 
 $con=mysqli_connect('localhost','root','');
 
-mysqli_select_db($con,"pottery_db");
+mysqli_select_db($con,"global_database");
 
-$name=$_POST['Username'];
-$pass=md5($_POST['Password']);
+$email=$_POST['Email'];
+$password=md5($_POST['Password']);
 
-$s="select * from users where Username = '$name' and Password = '$pass' ;";
+$s="select * from platform_users where mail_user = '$email' and mdp_user = '$password' ;";
 
 $result = mysqli_query($con,$s);
 
@@ -17,17 +17,23 @@ $num=mysqli_num_rows($result);
 
 if($num == 1)
 {
-    $role=mysqli_fetch_row(mysqli_query($con,"select Role from users where Username ='$name' and Password = '$pass'; "))[0];
-    echo $role;
+    $role=mysqli_fetch_row(mysqli_query($con,"select type_user from platform_users where mail_user ='$email' and mdp_user = '$password'; "))[0];
     if($role=="Client")
     {
-        $_SESSION["Username"]=$name;
+        $_SESSION["Email"]=$email;
         header("location: ./Client.php");
     }
-        
+    else if($role=="Global_Admin")
+    {
+        $_SESSION["Email"]=$email;
+        $_SESSION["Role"]=$role;
+        $_SESSION["LoggedIn"]=true;
+        header("location: ./GlobalAdmin.php");
+    } 
     else
     {
-        $_SESSION["Username"]=$name;
+        $_SESSION["LoggedIn"]=true;
+        $_SESSION["Email"]=$email;
         header("location: ./Admin.php?Page=Dashboard");
     }
         

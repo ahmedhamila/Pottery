@@ -1,0 +1,72 @@
+body {
+    background: #2C7DBC;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #7cccc5;
+}
+
+.profile-button {
+    background: #2C7DBC;
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #7cccc5;
+}
+
+.profile-button:focus {
+    background: #7cccc5;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #7cccc5;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #7cccc5;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.checkmark {
+    
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 9px;
+    margin-left: 10px;
+    border-bottom: 3px solid #78b13f;
+    border-right: 3px solid #78b13f;
+  }
+.cross{
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    border: none;
+    padding: 0;
+    width: 1.2em; 
+    height: 1.2em;
+    color: red;   
+}
+
+.cross:before, .cross:after {
+    position: absolute;
+    top: 39%; 
+    left: calc(50% - .0625em);
+    width: .125em; height: 70%;
+    border-radius: .125em;
+    transform: rotate(45deg);
+    background: currentcolor;
+    content: ''
+}
+
+.cross:after { transform: rotate(-45deg); }

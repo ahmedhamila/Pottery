@@ -79,7 +79,7 @@ h5.modal-title{
     font-size: 14px;
     color: #222;
 }
-.modal .modal-dialog .modal-content .modal-body form .form-element input[type="text"],.modal .modal-dialog .modal-content .modal-body form .form-element input[type="password"]{
+.modal .modal-dialog .modal-content .modal-body form .form-element .in{
     margin-top: 5px;
     display: block;
     width: 100%;
@@ -98,6 +98,14 @@ h5.modal-title{
     color: #f5f5f5;
     border-radius: 10px;
     cursor: pointer;
+}
+#PhotoOutput{
+    border-radius: 5px;
+}
+#PhotoL{
+    padding: 5px;
+    border:1px solid black;
+    margin-top: 5px;
 }
 
 body {

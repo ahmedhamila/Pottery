@@ -91,13 +91,13 @@
             <form action="./PHP/Validation.php" method="post" id="loginForm">
                 <div class="form-element">
                 <div class="form-element">
-                    <label for="Username">Username</label>
-                    <input type="text" id="Username" name="Username" placeholder="Enter Username" required autocomplete="off">
+                    <label for="Emailin">Email</label>
+                    <input type="email" id="Emailin" name="Email" placeholder="Enter Email" required autocomplete="off" class="in">
                 </div>
                 </div>
                 <div class="form-element">
                     <label for="Password">Password</label>
-                    <input type="password" id="Password" name="Password" placeholder="Enter Password" required autocomplete="off">
+                    <input type="password" id="Password" name="Password" placeholder="Enter Password" required autocomplete="off" class="in">
                 </div>
                 <div class="form-element">
                     <div class="modal-footer">
@@ -120,24 +120,59 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-        <?php if (isset($_GET['error']) &&$_GET['error'] =="UsernameExists"){ ?>
+        <?php if (isset($_GET['error']) &&$_GET['error'] =="EmailExists"){ ?>
             <script type="text/javascript">
             $(document).ready(function(){
                 $("#signupModal").modal("show");
             });
             </script>
             <div class='alert alert-danger d-flex align-items-center' role='alert'>
-                <h6 style='text-align : center; '>Username Already Exists</h6>
+                <h6 style='text-align : center; '>Email Already Exists</h6>
             </div>
         <?php } ?>
-            <form action="./PHP/Registration.php" method="post">
+
+        <?php if (isset($_GET['error']) &&$_GET['error'] =="PhotoError"){ ?>
+            <script type="text/javascript">
+            $(document).ready(function(){
+                $("#signupModal").modal("show");
+            });
+            </script>
+            <div class='alert alert-danger d-flex align-items-center' role='alert'>
+                <h6 style='text-align : center; '>Error encountered when uploading photo please try again later</h6>
+            </div>
+        <?php } ?>
+
+        <?php if (isset($_GET['error']) &&$_GET['error'] =="PhotoTooBig"){ ?>
+            <script type="text/javascript">
+            $(document).ready(function(){
+                $("#signupModal").modal("show");
+            });
+            </script>
+            <div class='alert alert-danger d-flex align-items-center' role='alert'>
+                <h6 style='text-align : center; '>Photo size is too big for upload</h6>
+            </div>
+        <?php } ?>
+            <form action="./PHP/Registration.php" method="post" enctype="multipart/form-data">
                 <div class="form-element">
-                    <label for="Username">Username</label>
-                    <input type="text" id="Username" name="Username" placeholder="Enter Username" required autocomplete="off" title="Must Contain at least 2 characters(starts with uppercase letter)" pattern="[A-Z][a-zA-Z0-9]+">
+                    <label for="Emailup">Email</label>
+                    <input type="email" id="Emailup" name="Email" placeholder="Enter Email" required autocomplete="off" class="in">
+                </div>
+                <div class="form-element">
+                    <label for="Adresse">Adresse</label>
+                    <input type="text" id="Adresse" name="Adresse" placeholder="Enter Adress" required autocomplete="off" class="in">
+                </div>
+                <div class="form-element">
+                    <label for="Phone">Phone Number</label>
+                    <input type="number" id="Phone" name="Phone" placeholder="Enter Phone Number" required autocomplete="off" class="in" minlength="8">
                 </div>
                 <div class="form-element">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="Password" placeholder="Enter password" required autocomplete="off">
+                    <input type="password" id="password" name="Password" placeholder="Enter password" required autocomplete="off"  class="in">
+                </div>
+                <div class="form-element">
+                    <label id="PhotoL" for="Photo">Photo(Optional)</label>
+                    <input type="file" id="Photo"  name="Photo" onchange="loadFile(event)" accept="image/*" style="display: none;" autocomplete="off" >
+                    <img id="PhotoOutput" alt="Photo" width="150">
                 </div>
                 <div class="form-element">
                     <a href="./PHP/Company-Signup.php">Are you and entrepreneur ? sign up here</a>
